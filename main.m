@@ -29,3 +29,6 @@ fprintf('Regra De Simpson 3/8 \n');
 regraSimpson38(fx,a,b);
 fprintf('Regra De Simpson 3/8 Composta\n');
 regraSimpson38Composta(fx,a,b,2);
+
+fprintf('Regra De Boole\n');
+regraBoole(fx,a,b);
