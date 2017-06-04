@@ -1,7 +1,7 @@
 %n=Quantidade de Pares de subintervalos
-function [integral,erroRel,erroApr] = regraSimpsonComposta(fx,a,b,n)
+function regraSimpson13Composta(fx,a,b,n)
     %Preparacao
-    passo=abs((b-a)/(2*n));
+    passo=abs((b-a)/(n*2));
     
     %Metodo
     somaPares=0;
@@ -17,4 +17,5 @@ function [integral,erroRel,erroApr] = regraSimpsonComposta(fx,a,b,n)
     %Calculo da Integral e Erro
     integral=(passo/3)*(subs(fx,a)+subs(fx,b)+2*somaPares+4*somaImpares);    
     [erroRel,erroApr] = calculoErro(fx,a,b,integral);
+    fprintf('Integral: %.2f \t-\t ErroRel: %.2f%% \t-\t ErroApr: %.2f\n',integral,erroRel,erroApr);
 end

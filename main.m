@@ -1,30 +1,31 @@
 clc;
 %Declaração fx
-fx=@(x)1/(x^2);
+syms t;
+g=9.81;
+m=68.1;
+cd=0.25;
+fx=sqrt((g*m)/cd)*tanh(sqrt((g*cd)/m)*t);
+
 %Declaracao Limites
-a=1;
-b=7;
+a=0;
+b=6;
 
 %Valor Real
-integralfx=int(fx,x,a,b);
+integralfx=int(fx,a,b);
 fprintf('Valor Real: %.2f\n',integralfx);
 
 %Resolucao Por Integração Numerica
 fprintf('Regra Do Trapezio\n');
-[integral,erroRel,erroApr]=regraTrapezio(fx,a,b);
-fprintf('Integral: %.2f \t-\t ErroRel: %.2f%% \t-\t ErroApr: %.2f\n',integral,erroRel,erroApr);
+regraTrapezio(fx,a,b);
 fprintf('Regra Do Trapezio Composto\n');
-[integral,erroRel,erroApr] = regraTrapezioComposto(fx,a,b,10);
-fprintf('Integral: %.2f \t-\t ErroRel: %.2f%% \t-\t ErroApr: %.2f\n',integral,erroRel,erroApr);
+regraTrapezioComposto(fx,a,b,5);
 
 fprintf('Regra De Simpson\n');
-[integral,erroRel,erroApr] = regraSimpson(fx,a,b);
-fprintf('Integral: %.2f \t-\t ErroRel: %.2f%% \t-\t ErroApr: %.2f\n',integral,erroRel,erroApr);
-fprintf('Regra De SimpsonComposta\n');
-[integral,erroRel,erroApr] = regraSimpsonComposta(fx,a,b,10);
-fprintf('Integral: %.2f \t-\t ErroRel: %.2f%% \t-\t ErroApr: %.2f\n',integral,erroRel,erroApr);
+regraSimpson13(fx,a,b);
+fprintf('Regra De Simpson 1/3 Composta\n');
+regraSimpson13Composta(fx,a,b,2);
 
-
-
-
-
+fprintf('Regra De Simpson 3/8 \n');
+regraSimpson38(fx,a,b);
+fprintf('Regra De Simpson 3/8 Composta\n');
+regraSimpson38Composta(fx,a,b,2);
