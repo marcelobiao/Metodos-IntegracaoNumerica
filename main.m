@@ -8,7 +8,7 @@ fx=sqrt((g*m)/cd)*tanh(sqrt((g*cd)/m)*t);
 
 %Declaracao Limites
 a=0;
-b=6;
+b=10;
 
 %Valor Real
 integralfx=int(fx,a,b);
@@ -20,7 +20,7 @@ regraTrapezio(fx,a,b);
 fprintf('Regra Do Trapezio Composto\n');
 regraTrapezioComposto(fx,a,b,5);
 
-fprintf('Regra De Simpson\n');
+fprintf('Regra De Simpson 1/3\n');
 regraSimpson13(fx,a,b);
 fprintf('Regra De Simpson 1/3 Composta\n');
 regraSimpson13Composta(fx,a,b,2);
