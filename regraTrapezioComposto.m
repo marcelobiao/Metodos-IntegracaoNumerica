@@ -1,17 +1,15 @@
-function [integral,erroRel,erroApr] = regraTrapezioComposto(fx,a,b,integralfx,n);
+function [integral,erroRel,erroApr] = regraTrapezioComposto(fx,a,b,n)
     %Preparacao
-    h=abs((b-a)/n);
-    integral=0;
-    erroRel=0;
-    erroApr=0;
+    passo=abs((b-a)/n);
     
     %Metodo
-    for(i=0:n-1)
-        integral=integral+(subs(fx,i)+subs(fx,i+1))*h/2;
+    soma=0;   
+    for(i=1:n-1)
+        soma=soma+subs(fx,a+passo*i);           
     end
     
-    %Calculo Erro
-    erroRel=abs((integralfx-integral)*100/integralfx);
-    erroApr=abs(integralfx-integral);
+    %Calculo da Integral e Erro
+    integral=(passo/2)*(subs(fx,a)+subs(fx,b)+2*soma);    
+    [erroRel,erroApr] = calculoErro(fx,a,b,integral);
     
 end
