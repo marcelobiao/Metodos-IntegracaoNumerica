@@ -16,5 +16,5 @@ function regraSimpson38Composta(fx,a,b,n)
     %Calculo da Integral e Erro
     integral=(passo*(3/8))*(subs(fx,a)+subs(fx,b)+2*somaMul3+3*somaResto);    
     [erroRel,erroApr] = calculoErro(fx,a,b,integral);
-    fprintf('Integral: %.2f \t-\t ErroRel: %.2f%% \t-\t ErroApr: %.2f\n',integral,erroRel,erroApr);
+    fprintf('Integral: %.16f \t-\t ErroRel: %.16f%% \t-\t ErroApr: %.16f\n',integral,erroRel,erroApr);
 end

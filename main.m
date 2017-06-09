@@ -8,27 +8,27 @@ fx=sqrt((g*m)/cd)*tanh(sqrt((g*cd)/m)*t);
 
 %Declaracao Limites
 a=0;
-b=10;
+b=6;
 
 %Valor Real
 integralfx=int(fx,a,b);
-fprintf('Valor Real: %.2f\n',integralfx);
+fprintf('Valor Real: %.16f\n',integralfx);
 
 %Resolucao Por Integração Numerica
 fprintf('Regra Do Trapezio\n');
 regraTrapezio(fx,a,b);
 fprintf('Regra Do Trapezio Composto\n');
-regraTrapezioComposto(fx,a,b,5);
+regraTrapezioComposto(fx,a,b,4);
 
 fprintf('Regra De Simpson 1/3\n');
 regraSimpson13(fx,a,b);
 fprintf('Regra De Simpson 1/3 Composta\n');
-regraSimpson13Composta(fx,a,b,2);
+regraSimpson13Composta(fx,a,b,4);
 
 fprintf('Regra De Simpson 3/8 \n');
 regraSimpson38(fx,a,b);
 fprintf('Regra De Simpson 3/8 Composta\n');
-regraSimpson38Composta(fx,a,b,2);
+regraSimpson38Composta(fx,a,b,4);
 
 fprintf('Regra De Boole\n');
 regraBoole(fx,a,b);
