@@ -15,7 +15,12 @@ function regraSimpson13Composta(fx,a,b,n)
     end
     
     %Calculo da Integral e Erro
-    integral=(passo/3)*(subs(fx,a)+subs(fx,b)+2*somaPares+4*somaImpares);    
-    [erroRel,erroApr] = calculoErro(fx,a,b,integral);
+    integral=(passo/3)*(subs(fx,a)+subs(fx,b)+2*somaPares+4*somaImpares); 
+    
+    integralfx=int(fx,a,b);
+    erroRel=abs((integralfx-integral)*100/integralfx);
+    derivadafx=diff(fx,4);
+    maximo = maximoValor(derivadafx, a, b);
+    erroApr=abs(((passo^4)/180)*(b-a)*subs(derivadafx,maximo));
     fprintf('Integral: %.16f \t-\t ErroRel: %.16f%% \t-\t ErroApr: %.16f\n',integral,erroRel,erroApr);
 end

@@ -9,7 +9,12 @@ function regraTrapezioComposto(fx,a,b,n)
     end
     
     %Calculo da Integral e Erro
-    integral=(passo/2)*(subs(fx,a)+subs(fx,b)+2*soma);    
-    [erroRel,erroApr] = calculoErro(fx,a,b,integral);
+    integral=(passo/2)*(subs(fx,a)+subs(fx,b)+2*soma);  
+    
+    integralfx=int(fx,a,b);
+    erroRel=abs((integralfx-integral)*100/integralfx);
+    derivadafx=diff(fx,2);
+    maximo = maximoValor(derivadafx, a, b);
+    erroApr=abs(((passo^2)/12)*(b-a)*subs(derivadafx,maximo));
     fprintf('Integral: %.16f \t-\t ErroRel: %.16f%% \t-\t ErroApr: %.16f\n',integral,erroRel,erroApr);
 end
