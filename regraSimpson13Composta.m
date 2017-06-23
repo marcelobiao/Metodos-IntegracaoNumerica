@@ -1,4 +1,7 @@
-%n=Quantidade de Pares de subintervalos
+%fx:Funcao.
+%a:Limite inferior do intervalo.
+%b:Limite superior do intervalo.
+%n: Quantidade de vezes que a regra é aplicada.
 function regraSimpson13Composta(fx,a,b,n)
     %Preparacao
     passo=abs((b-a)/(n*2));

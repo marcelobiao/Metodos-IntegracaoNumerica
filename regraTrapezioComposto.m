@@ -1,3 +1,7 @@
+%fx:Funcao.
+%a:Limite inferior do intervalo.
+%b:Limite superior do intervalo.
+%n: Quantidade de vezes que a regra é aplicada.
 function regraTrapezioComposto(fx,a,b,n)
     %Preparacao
     passo=abs((b-a)/n);
@@ -13,6 +17,7 @@ function regraTrapezioComposto(fx,a,b,n)
     
     integralfx=int(fx,a,b);
     erroRel=abs((integralfx-integral)*100/integralfx);
+    
     derivadafx=diff(fx,2);
     maximo = maximoValor(derivadafx, a, b);
     erroApr=abs(((passo^2)/12)*(b-a)*subs(derivadafx,maximo));

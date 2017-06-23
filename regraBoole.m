@@ -1,3 +1,7 @@
+%fx:Funcao.
+%a:Limite inferior do intervalo.
+%b:Limite superior do intervalo.
+%n: Quantidade de vezes que a regra é aplicada.
 function regraBoole(fx,a,b)
     %Preparacao
     passo=abs((b-a)/4);    
